@@ -27,12 +27,13 @@ python3 - <<PY
 import urllib.request
 import urllib.error
 
+opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
 req = urllib.request.Request(
     "http://${HOST}:${PORT}/v1/models",
     headers={"Authorization": "Bearer ${API_KEY}"},
 )
 try:
-    with urllib.request.urlopen(req, timeout=5) as response:
+    with opener.open(req, timeout=5) as response:
         print(response.status)
         print(response.read().decode())
 except urllib.error.HTTPError as exc:
