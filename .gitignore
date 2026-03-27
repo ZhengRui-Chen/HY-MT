@@ -1,0 +1,7 @@
+.runtime/
+.venv/
+.venv-omlx/
+.pytest_cache/
+__pycache__/
+configs/omlx.env
+models/
